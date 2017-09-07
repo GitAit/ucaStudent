@@ -1,0 +1,29 @@
+
+<ion-content padding>
+  <ion-list>
+
+    <img class="login-logo" src="assets/images/photo.jpg"/>
+
+    <ion-item>
+      <ion-label floating color="main">CNE</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="main">Apogée</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="main">Date Naissance</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="event.month"></ion-datetime>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="main" class="login-btn" block>SE CONNECTER</button>
+  </div>
+
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>
