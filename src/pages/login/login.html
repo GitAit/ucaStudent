@@ -1,0 +1,31 @@
+
+<ion-content padding>
+  <form (submit)="doLogin()">
+    <ion-list>
+
+      <img class="login-logo" src="assets/images/photo.jpg"/>
+
+      <ion-item>
+        <ion-label floating color="main">CNE</ion-label>
+        <ion-input [(ngModel)]="loginData.cne" name="cne" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="main">Apogée</ion-label>
+        <ion-input [(ngModel)]="loginData.apogee" name="apogee" type="number"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating color="main">Date Naissance</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="loginData.dateNaissance" name="dateNaissance"></ion-datetime>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button color="main" class="login-btn" block type="submit">SE CONNECTER</button>
+    </div>
+  </form>
+
+  <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>
