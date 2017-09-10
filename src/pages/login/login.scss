@@ -1,8 +1,18 @@
 page-login {
 
 	.login-logo {
-		width: 140px;
-	  margin: 30px auto 10px auto;
-	  display: block;	
+		// width: 140px;
+	 //  margin: 30px auto 10px auto;
+	 //  display: block;	
+
+ 		display: block;
+		width: 40%;
+		margin: auto;
+		margin-top: 20px;
+	}
+
+	.login-btn  {
+		height: 30px;
+    font-size: 13px;
 	}
 }

@@ -17,15 +17,19 @@ export class MyApp {
   rootPage: any = HomePage;
   // rootPage: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, icon: string, component: any}>;
+  name: string = localStorage.getItem("nom")+' '+localStorage.getItem("prenom");
+  etab: string = localStorage.getItem("etab");
+  filiere: string = localStorage.getItem("filiere");
+  annee: string = localStorage.getItem("annee")+'/'+(parseInt(localStorage.getItem("annee"))+1);
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Résultats', icon: 'results', component: HomePage },
+      { title: 'Notifications', icon: 'notification', component: ListPage }
     ];
 
   }
@@ -49,5 +53,27 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    localStorage.removeItem('numApogee');
+    localStorage.removeItem('nom');
+    localStorage.removeItem('prenom');
+    localStorage.removeItem('cne');
+    localStorage.removeItem('dateNaissance');
+    localStorage.removeItem('annee');
+    localStorage.removeItem('etab');
+    localStorage.removeItem('filiere');
+    
+    this.nav.setRoot(LoginPage);
+
+    // this.authServiceProvider.logout().then((result) => {
+    //   this.loading.dismiss();
+    //   let nav = this.app.getRootNav();
+    //   nav.setRoot(LoginPage);
+    // }, (err) => {
+    //   this.loading.dismiss();
+    //   this.presentToast(err);
+    // });
   }
 }

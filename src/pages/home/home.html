@@ -4,23 +4,14 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-      <ion-buttons end>
-        <button ion-button clear (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>
-        </button>
-      </ion-buttons>
-
-
-    <ion-title>Home</ion-title>
+    <ion-title>Résultats</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-list class="results-list">
+    <button ion-item *ngFor="let result of results" (click)="resultSelected(result)">
+      {{ result.intituleELP }}: {{ result.noteELP }}, {{ result.resELP }}
+    </button>  
+  </ion-list>
 </ion-content>

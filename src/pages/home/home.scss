@@ -1,15 +1,12 @@
 page-home {
-
-	.login-logo {
-		display: block;
-		width: 40%;
-		margin: auto;
-		margin-top: 20px;
+	.results-list {
+		.item-md {
+			background-color: #822e12;
+	    color: white;
+	    font-size: 10pt;
+	    text-transform: uppercase;
+		}
 	}
 
-	.login-btn  {
-		height: 30px;
-    font-size: 13px;
-	}
 }
 

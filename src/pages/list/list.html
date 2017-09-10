@@ -28,18 +28,24 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>List</ion-title>
+    <ion-title>Notifications</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let student of students">
-      <ion-avatar item-left>
-        <img src="{{student.picture.thumbnail}}">
-      </ion-avatar>
-      <h2>{{student.name.first}} {{student.name.last}}</h2>
-      <p>{{student.email}}</p>
+    <ion-item *ngFor="let notification of notifications">
+      <ion-card>
+        <ion-card-header>
+          {{notification.objet}}
+        </ion-card-header>
+        <ion-card-content>
+          {{notification.texte}}
+        </ion-card-content>
+        <ion-note>
+          {{notification.date_notif}} - {{notification.published_by}}
+        </ion-note>
+      </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>

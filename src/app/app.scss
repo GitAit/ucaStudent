@@ -14,3 +14,76 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-md {
+  	margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  .thumb {
+    position: absolute;
+    top: 8%;
+    left: 28px;
+    width: 40px;
+  }
+
+  .card-title {
+		position: absolute;
+    top: 36%;
+    left: 15px;
+    font-size: 11pt;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .card-etab {
+    font-size: 10pt;
+    position: absolute;
+    top: 46%;
+    left: 15px;
+    color: #ece8e8;
+  }
+  .card-filiere {
+    font-size: 10pt;
+    position: absolute;
+    top: 56%;
+    left: 15px;
+    color: #ece8e8;
+  }
+  .card-annee {
+    font-size: 9pt;
+    position: absolute;
+    top: 66%;
+    left: 15px;
+    color: #fff;
+  }
+
+  .btn-icon {
+  	width: 25px;
+  	vertical-align: middle;
+  }
+
+  .btn-text {
+  	display: inline-block;
+    margin-left: 10px;
+    font-size: 10pt;
+    font-weight: 500;
+  }
+
+  .list-md .item-block .item-inner {
+  	border-bottom: 0;
+  }
+
+  .logout {
+  	border-top: 1px solid #dedede;
+  }
+
+}

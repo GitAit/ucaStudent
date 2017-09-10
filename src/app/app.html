@@ -1,15 +1,27 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
+  <ion-content class="card-background-page">
+
+    <ion-card>
+      <img src="assets/images/background_header.png"/>
+      <img class="thumb" src="assets/images/profile.png"/>
+      <div class="card-title">{{name}}</div>
+      <div class="card-etab">{{etab}}</div>
+      <div class="card-filiere">{{filiere}}</div>
+      <div class="card-annee">{{annee}}</div>
+    </ion-card>
+
     <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
+      <button menuClose ion-item clear icon-start *ngFor="let p of pages" (click)="openPage(p)">
+        <img class="btn-icon" src="assets/images/{{p.icon}}.png"/>
+        <div class="btn-text">{{p.title}}</div>
       </button>
+
+      <button menuClose ion-item clear icon-start class="logout" (click)="logout()">
+        <img class="btn-icon" src="assets/images/logout.png"/>
+        <div class="btn-text">Se déconnecter</div>
+      </button>
+
     </ion-list>
   </ion-content>
 

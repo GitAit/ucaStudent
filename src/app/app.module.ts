@@ -14,6 +14,7 @@ import { StudentProvider } from '../providers/student/student';
 import { HttpModule } from '@angular/http';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
+import { ResultServiceProvider } from '../providers/result-service/result-service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UniqueDeviceID } from '@ionic-native/unique-device-id';
     UniqueDeviceID,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StudentProvider,
-    AuthServiceProvider
+    AuthServiceProvider,
+    ResultServiceProvider
   ]
 })
 export class AppModule {}

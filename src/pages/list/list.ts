@@ -9,7 +9,7 @@ import { StudentProvider } from '../../providers/student/student';
 })
 
 export class ListPage {
-  public students: any;
+  public notifications: any;
 
   constructor(public studentProvider: StudentProvider){
     this.loadStudents();
@@ -18,7 +18,7 @@ export class ListPage {
   loadStudents(){
     this.studentProvider.load()
     .then(data => {
-      this.students = data;
+      this.notifications = data;
     });
   }
 
