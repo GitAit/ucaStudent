@@ -8,6 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 // import { Auth } from '@ionic/cloud-angular';
 
+import { Events } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -18,12 +20,12 @@ export class MyApp {
   // rootPage: any;
 
   pages: Array<{title: string, icon: string, component: any}>;
-  name: string = localStorage.getItem("nom")+' '+localStorage.getItem("prenom");
-  etab: string = localStorage.getItem("etab");
-  filiere: string = localStorage.getItem("filiere");
-  annee: string = localStorage.getItem("annee")+'/'+(parseInt(localStorage.getItem("annee"))+1);
+  name: string;
+  etab: string;
+  filiere: string;
+  annee: string;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -32,6 +34,17 @@ export class MyApp {
       { title: 'Notifications', icon: 'notification', component: ListPage }
     ];
 
+    events.subscribe('data:changed', data => {
+      this.name = data.nom+' '+data.prenom;
+      this.etab = data.etab;
+      this.filiere = data.filiere;
+      this.annee = data.annee+'/'+(parseInt(data.annee)+1);
+    })
+
+    // this.name = localStorage.getItem("nom")+' '+localStorage.getItem("prenom");
+    // this.etab = localStorage.getItem("etab");
+    // this.filiere = localStorage.getItem("filiere");
+    // this.annee = localStorage.getItem("annee")+'/'+(parseInt(localStorage.getItem("annee"))+1);
   }
 
   initializeApp() {

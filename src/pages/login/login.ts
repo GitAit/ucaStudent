@@ -4,6 +4,8 @@ import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 
+import { Events } from 'ionic-angular';
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -15,7 +17,7 @@ export class LoginPage {
   // loginData = { cne:'1210125458', apogee:'1577135', dateNaissance:'15/12/1993', token:'fJRamd9hQmE:fJRamd9hQmE:APA91bELh6bL4mAkktPoO8mrpV31XsXSOKjw257788888' };
   data: any;
 
-  constructor(public navCtrl: NavController, public authServiceProvider: AuthServiceProvider, public loadingCtrl: LoadingController, private toastCtrl: ToastController, private uniqueDeviceID: UniqueDeviceID) {}
+  constructor(public navCtrl: NavController, public authServiceProvider: AuthServiceProvider, public loadingCtrl: LoadingController, private toastCtrl: ToastController, private uniqueDeviceID: UniqueDeviceID, public events: Events) {}
 
   doLogin() {
     this.showLoader();
@@ -30,6 +32,8 @@ export class LoginPage {
       this.loading.dismiss();
     
       this.data = result;
+
+      this.events.publish('data:changed', this.data);
 
       localStorage.setItem('numApogee', this.data.numApogee);
       localStorage.setItem('nom', this.data.nom);
