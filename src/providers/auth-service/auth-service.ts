@@ -9,8 +9,8 @@ import 'rxjs/add/operator/map';
   for more info on providers and Angular DI.
 */
 
-// let apiUrl = 'http://ucastudent.uca.ma/';
-let apiUrl = 'http://localhost/uca_notes/';
+let apiUrl = 'http://ucastudent.uca.ma/';
+// let apiUrl = 'http://localhost/uca_notes/';
 
 @Injectable()
 export class AuthServiceProvider {

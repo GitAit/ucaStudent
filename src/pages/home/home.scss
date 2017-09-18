@@ -3,7 +3,7 @@ page-home {
 		.item-md {
 			background-color: #822e12;
 	    color: white;
-	    font-size: 8pt;
+	    font-size: 9pt;
 	    text-transform: uppercase;
       height: 30px;
 	    padding: 0;
@@ -12,17 +12,17 @@ page-home {
       font-weight: 600;
 
 	    &.style1 {
-	    	background-color: #822e12;
+	    	background-color: #9c4021;
 	    }
 	    &.style2 {
-	    	background-color: #d88787;
+	    	background-color: #dc8572;
 	    	padding-left: 12px;
 	    }
 	    &.style3 {
 	    	background-color: white;
 	    	padding-left: 24px;
 	    	color: black;
-	    	font-size: 7pt;
+	    	font-size: 8pt;
   	    height: 40px;
     		min-height: 40px;
 
@@ -36,7 +36,7 @@ page-home {
 		ion-icon[item-left] {
 			font-size: 1.8rem;
 			margin-top: 20px;
-	    color: #f3f1f1;
+	    color: #dad7d7;
 		}
 
 		.item-block .item-inner {
