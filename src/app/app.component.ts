@@ -34,6 +34,11 @@ export class MyApp {
       { title: 'Notifications', icon: 'notification', component: ListPage }
     ];
 
+    this.name = localStorage.getItem("nom")+' '+localStorage.getItem("prenom");
+    this.etab = localStorage.getItem("etab");
+    this.filiere = localStorage.getItem("filiere");
+    this.annee = localStorage.getItem("annee")+'/'+(parseInt(localStorage.getItem("annee"))+1);
+
     events.subscribe('data:changed', data => {
       this.name = data.nom+' '+data.prenom;
       this.etab = data.etab;

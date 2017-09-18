@@ -3,8 +3,45 @@ page-home {
 		.item-md {
 			background-color: #822e12;
 	    color: white;
-	    font-size: 10pt;
+	    font-size: 8pt;
 	    text-transform: uppercase;
+      height: 30px;
+	    padding: 0;
+	    min-height: 30px;
+	    border-bottom: 1px solid #f3f1f1;
+      font-weight: 600;
+
+	    &.style1 {
+	    	background-color: #822e12;
+	    }
+	    &.style2 {
+	    	background-color: #d88787;
+	    	padding-left: 12px;
+	    }
+	    &.style3 {
+	    	background-color: white;
+	    	padding-left: 24px;
+	    	color: black;
+	    	font-size: 7pt;
+  	    height: 40px;
+    		min-height: 40px;
+
+    		.mod-note {
+    			color: red;
+			    margin-top: 3px;
+    		}
+	    }
+		}
+
+		ion-icon[item-left] {
+			font-size: 1.8rem;
+			margin-top: 20px;
+	    color: #f3f1f1;
+		}
+
+		.item-block .item-inner {
+		  border: 0;
+		  margin-left: 0;
 		}
 	}
 

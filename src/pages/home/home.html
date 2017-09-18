@@ -10,8 +10,15 @@
 
 <ion-content padding>
   <ion-list class="results-list">
-    <button ion-item *ngFor="let result of results" (click)="resultSelected(result)">
+<!--     <button ion-item *ngFor="let result of results" (click)="resultSelected(result)">
       {{ result.intituleELP }}: {{ result.noteELP }}, {{ result.resELP }}
-    </button>  
+    </button>  -->
+
+    <ion-item padding *ngFor="let result of results" (click)="resultSelected(result)" [ngClass]="{'style1': result.natureELP == 'AN', 'style2': result.natureELP.startsWith('SM'), 'style3': result.natureELP == 'MOD'}">
+      <ion-icon item-left name="ios-arrow-down"></ion-icon>
+        <div *ngIf="result.natureELP != 'MOD'" >{{ result.intituleELP }}: {{ result.noteELP }}, {{ result.resELP }} </div>
+        <div *ngIf="result.natureELP == 'MOD'" >{{ result.intituleELP }} </div>
+        <div *ngIf="result.natureELP == 'MOD'" class="mod-note">{{ result.noteELP }}, {{ result.resELP }} </div>
+    </ion-item> 
   </ion-list>
 </ion-content>
