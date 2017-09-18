@@ -16,9 +16,18 @@
 
     <ion-item padding *ngFor="let result of results" (click)="resultSelected(result)" [ngClass]="{'style1': result.natureELP == 'AN', 'style2': result.natureELP.startsWith('SM'), 'style3': result.natureELP == 'MOD'}">
       <ion-icon item-left name="ios-arrow-down"></ion-icon>
-        <div *ngIf="result.natureELP != 'MOD'" >{{ result.intituleELP }}: {{ result.noteELP }}, {{ result.resELP }} </div>
+        <div *ngIf="result.natureELP != 'MOD'" >
+          <label>{{ result.intituleELP }}: </label> 
+          <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
+          <label *ngIf="!result.noteELP">--,--</label> 
+          <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
+        </div>
         <div *ngIf="result.natureELP == 'MOD'" >{{ result.intituleELP }} </div>
-        <div *ngIf="result.natureELP == 'MOD'" class="mod-note">{{ result.noteELP }}, {{ result.resELP }} </div>
+        <div *ngIf="result.natureELP == 'MOD'" class="mod-note">
+          <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
+          <label *ngIf="!result.noteELP">--,--</label> 
+          <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
+        </div>
     </ion-item> 
   </ion-list>
 </ion-content>

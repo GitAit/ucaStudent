@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { Events } from 'ionic-angular';
 
+declare var FCMPlugin;
 @Component({
   templateUrl: 'app.html'
 })
@@ -58,6 +59,28 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      if (typeof FCMPlugin != 'undefined') {
+        FCMPlugin.getToken(
+          (t) => {
+            console.log(t);
+          },
+          (e) => {
+            console.log('error retrieving token: ' + e);
+          }
+        );
+
+        FCMPlugin.onNotification(
+          (data) => {
+            console.log(data);
+          },
+          (e) => {
+            console.log(e);
+          }
+        );
+      }
+
+
 
       // if(this.auth.isAuthenticated()) {
       //   this.rootPage = HomePage;

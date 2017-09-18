@@ -1,6 +1,6 @@
 {
   "name": "ucaStudent",
-  "app_id": "",
+  "app_id": "55a745a6",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
