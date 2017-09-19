@@ -14,12 +14,12 @@ let apiUrl = 'http://ucastudent.uca.ma/';
 
 
 @Injectable()
-export class StudentProvider {
+export class NotificationProvider {
 
 	public data: any;
 
   constructor(public http: Http) {
-    console.log('Hello StudentProvider Provider');
+    console.log('Hello NotificationProvider Provider');
   }
 
   load() {

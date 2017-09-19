@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { StudentProvider } from '../../providers/student/student';
+import { NotificationProvider } from '../../providers/notification/notification';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html',
-  providers: [StudentProvider]
+  providers: [NotificationProvider]
 })
 
 export class ListPage {
   public notifications: any;
 
-  constructor(public studentProvider: StudentProvider){
-    this.loadStudents();
+  constructor(public notificationProvider: NotificationProvider){
+    this.loadNotifications();
   }
 
-  loadStudents(){
-    this.studentProvider.load()
+  loadNotifications(){
+    this.notificationProvider.load()
     .then(data => {
       this.notifications = data;
     });

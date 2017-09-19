@@ -9,7 +9,7 @@ import { LoginPage } from '../pages/login/login';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { StudentProvider } from '../providers/student/student';
+import { NotificationProvider } from '../providers/notification/notification';
 
 import { HttpModule } from '@angular/http';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
@@ -42,7 +42,7 @@ import { FCM } from '@ionic-native/fcm';
     SplashScreen,
     UniqueDeviceID,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    StudentProvider,
+    NotificationProvider,
     AuthServiceProvider,
     ResultServiceProvider,
     FCM
