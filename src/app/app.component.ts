@@ -8,7 +8,7 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 // import { Auth } from '@ionic/cloud-angular';
 
-import { Events } from 'ionic-angular';
+import { Events, ToastController } from 'ionic-angular';
 
 declare var FCMPlugin;
 @Component({
@@ -26,7 +26,7 @@ export class MyApp {
   filiere: string;
   annee: string;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public events: Events, public toastCtrl: ToastController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -61,21 +61,14 @@ export class MyApp {
       this.splashScreen.hide();
 
       if (typeof FCMPlugin != 'undefined') {
-        FCMPlugin.getToken(
-          (t) => {
-            console.log(t);
-          },
-          (e) => {
-            console.log('error retrieving token: ' + e);
-          }
-        );
-
         FCMPlugin.onNotification(
           (data) => {
             console.log(data);
+            // this.showToast(data);
           },
           (e) => {
             console.log(e);
+            // this.showToast(e);
           }
         );
       }
@@ -88,6 +81,15 @@ export class MyApp {
       //   this.rootPage = LoginPage;
       // }
     });
+  }
+
+  showToast(message) {
+    const toast = this.toastCtrl.create({
+      message: message,
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
   }
 
   openPage(page) {

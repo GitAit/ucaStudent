@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, LoadingController, Events, ToastController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 
-import { Events } from 'ionic-angular';
-
+declare var FCMPlugin;
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
@@ -21,10 +20,28 @@ export class LoginPage {
 
   doLogin() {
     this.showLoader();
-    this.uniqueDeviceID.get()
-	  .then((uuid: any) => console.log(uuid))
-	  .catch((error: any) => console.log(error));
+    
+    if (typeof FCMPlugin != 'undefined') {
+      FCMPlugin.getToken(
+        (t) => {
+          this.loginData.token = t;
+          this.executeLogin();
+          console.log(t);
+          // this.showToast(t);
+        },
+        (e) => {
+          console.log('error retrieving token: ' + e);
+          // this.showToast('error retrieving token: ' + e);
+        }
+      );
+    } else {
+      this.executeLogin();
+    }
 
+    // this.getDeviceToken();
+  }
+
+  executeLogin(){
     var dateNaissance = new Date(this.loginData.dateNaissance);
     this.loginData.dateNaissance = dateNaissance.getDate().toString()+'/'+(dateNaissance.getMonth()+1).toString()+'/'+dateNaissance.getFullYear().toString();
 
@@ -73,6 +90,32 @@ export class LoginPage {
 
     toast.present();
   }
+
+  getDeviceToken(){
+    if (typeof FCMPlugin != 'undefined') {
+      FCMPlugin.getToken(
+        (t) => {
+          this.loginData.token = t;
+          console.log(t);
+          this.showToast(t);
+        },
+        (e) => {
+          console.log('error retrieving token: ' + e);
+          // this.showToast('error retrieving token: ' + e);
+        }
+      );
+    }
+  }
+
+  showToast(message) {
+    const toast = this.toastCtrl.create({
+      message: message,
+      showCloseButton: true,
+      closeButtonText: 'Ok'
+    });
+    toast.present();
+  }
+
 
   public event = {
     month: '1990-02-19',

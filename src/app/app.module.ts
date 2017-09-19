@@ -16,6 +16,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { ResultServiceProvider } from '../providers/result-service/result-service';
 
+import { FCM } from '@ionic-native/fcm';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,7 +44,8 @@ import { ResultServiceProvider } from '../providers/result-service/result-servic
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     StudentProvider,
     AuthServiceProvider,
-    ResultServiceProvider
+    ResultServiceProvider,
+    FCM
   ]
 })
 export class AppModule {}
