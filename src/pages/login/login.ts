@@ -20,6 +20,7 @@ export class LoginPage {
 
   doLogin() {
     this.showLoader();
+    var that = this;
     
     if (typeof FCMPlugin != 'undefined') {
       FCMPlugin.getToken(

@@ -9,8 +9,9 @@ import 'rxjs/add/operator/map';
   for more info on providers and Angular DI.
 */
 
-let apiUrl = 'http://ucastudent.uca.ma/';
-// let apiUrl = 'http://localhost/uca_notes/';
+// let apiUrl = 'http://ucastudent.uca.ma/';
+let apiUrl = 'http://localhost/uca_notes/';
+// let apiUrl = 'http://699ce0fa.ngrok.io/uca_notes/';
 
 @Injectable()
 export class ResultServiceProvider {
@@ -22,14 +23,14 @@ export class ResultServiceProvider {
   }
 
   load(resultsParams) {
-	  // if (this.data) {
-	  //   // already loaded data
-	  //   return Promise.resolve(this.data);
-	  // }
+    // if (this.data) {
+    //   // already loaded data
+    //   return Promise.resolve(this.data);
+    // }
 
 
-	  // don't have the data yet
-	  return new Promise((resolve, reject) => {
+    // don't have the data yet
+    return new Promise((resolve, reject) => {
 
       // var params = "numApogee=" + resultsParams.numApogee + "&annee=" + resultsParams.annee;
       // debugger;
@@ -37,9 +38,9 @@ export class ResultServiceProvider {
       // headers.append('Accept', 'application/json');
       // headers.append('Content-Type', 'application/json');
 
-			let body = new FormData();
-			body.append('numApogee', resultsParams.numApogee);
-			body.append('annee', resultsParams.annee);
+      let body = new FormData();
+      body.append('numApogee', resultsParams.numApogee);
+      body.append('annee', resultsParams.annee);
 
 
       this.http.post(apiUrl+'MesResultats.php', body, {headers: headers})
@@ -48,8 +49,8 @@ export class ResultServiceProvider {
         }, (err) => {
           reject(err);
         });
-	  });
-	}
+    });
+  }
 
 }
 

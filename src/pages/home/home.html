@@ -10,24 +10,26 @@
 
 <ion-content padding>
   <ion-list class="results-list">
-<!--     <button ion-item *ngFor="let result of results" (click)="resultSelected(result)">
-      {{ result.intituleELP }}: {{ result.noteELP }}, {{ result.resELP }}
-    </button>  -->
-
-    <ion-item padding *ngFor="let result of results" (click)="resultSelected(result)" [ngClass]="{'style1': result.natureELP == 'AN', 'style2': result.natureELP.startsWith('SM'), 'style3': result.natureELP == 'MOD'}">
-      <ion-icon item-left name="ios-arrow-down"></ion-icon>
-        <div *ngIf="result.natureELP != 'MOD'" >
-          <label>{{ result.intituleELP }}: </label> 
-          <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
-          <label *ngIf="!result.noteELP">--,--</label> 
-          <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
-        </div>
-        <div *ngIf="result.natureELP == 'MOD'" >{{ result.intituleELP }} </div>
-        <div *ngIf="result.natureELP == 'MOD'" class="mod-note">
-          <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
-          <label *ngIf="!result.noteELP">--,--</label> 
-          <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
-        </div>
+    <ion-item padding *ngFor="let result of results; let i = index" (click)="resultSelected(result, i)" [ngClass]="{'style1': result.natureELP == 'AN', 'style2': result.natureELP.startsWith('SM'), 'style3': result.natureELP == 'MOD'}">
+      <ion-icon item-left [name]="result.showDetails ? 'ios-arrow-up': 'ios-arrow-down'"></ion-icon>
+      <div *ngIf="result.natureELP != 'MOD'" >
+        <label>{{ result.intituleELP }}: </label> 
+        <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
+        <label *ngIf="!result.noteELP">--,--</label> 
+        <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
+      </div>
+      <div *ngIf="result.natureELP == 'MOD'" >{{ result.intituleELP }} </div>
+      <div *ngIf="result.natureELP == 'MOD'" class="mod-note">
+        <label *ngIf="result.noteELP">{{ result.noteELP }},</label> 
+        <label *ngIf="!result.noteELP">--,--</label> 
+        <label *ngIf="result.noteELP">{{ result.resELP }}</label> 
+      </div>
+      <div *ngIf="(result.natureELP == 'MOD') && result.showDetails" class="mod-details">
+        <div class="small-item">Travaux Pratiques : {{ result.noteTP }}</div> 
+        <div class="small-item">Contrôle Continu : {{ result.noteCC }}</div> 
+        <div class="small-item">Contrôle Final : {{ result.noteCF }}</div> 
+        <div class="small-item">Contrôle Rattrapage : {{ result.noteCR }}</div> 
+      </div>
     </ion-item> 
   </ion-list>
 </ion-content>
