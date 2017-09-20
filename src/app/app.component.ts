@@ -61,57 +61,9 @@ export class MyApp {
       this.splashScreen.hide();
 
       var that = this;
-      
+
       if (typeof FCMPlugin != 'undefined') {
-
-
-
-      //   FCMPlugin.onNotification(
-      //     (data) => {
-      //         console.log('Data RAW: ', data);
-
-      //         if (data.wasTapped) {
-      //             //received background
-      //             if (data.message != '') {
-      //                 let toast = this.toastCtrl.create({
-      //                     position: 'top',
-      //                     message: data.message,
-      //                     duration: 5000,
-      //                     showCloseButton:true
-      //                 });
-      //                 toast.present();
-      //             }
-
-      //         } else {
-      //             //received foreground
-      //             if (data.message != '') {
-
-      //                 let msg = 'some message';
-      //                 if (data.message) {
-      //                     msg = data.message;
-      //                 }
-
-      //                 let toast = this.toastCtrl.create({
-      //                     position: 'top',
-      //                     message: msg,
-      //                     duration: 5000,
-      //                     showCloseButton:true
-      //                 });
-      //                 toast.present();
-
-
-      //             }
-      //         }
-      //     },
-      //     function (msg) {
-      //         console.log('onNotification callback successfully registered: ' + msg);
-      //     },
-      //     function (err) {
-      //         console.log('Error registering onNotification callback: ' + err);
-      //     }
-      // );
-
-
+        
         FCMPlugin.onNotification(function(data){
             if(data.wasTapped){
               //Notification was received on device tray and tapped by the user.
@@ -131,43 +83,9 @@ export class MyApp {
 
         );
 
-
-        // FCMPlugin.onNotification(
-        //   (data) => {
-        //     console.log(data);
-        //     this.showToast(JSON.stringify(data));
-        //   },
-        //   (e) => {
-        //     console.log(e);
-        //     // this.showToast(e);
-        //   }
-        // );
       }
-
-
-
-      // if(this.auth.isAuthenticated()) {
-      //   this.rootPage = HomePage;
-      // } else {
-      //   this.rootPage = LoginPage;
-      // }
     });
   }
-
-  // showToast(msg) {
-  //   let toast = this.toastCtrl.create({
-  //     message: msg,
-  //     duration: 5000,
-  //     position: 'top',
-  //     dismissOnPageChange: true
-  //   });
-
-  //   toast.onDidDismiss(() => {
-  //     alert('Dismissed toast');
-  //   });
-
-  //   toast.present();
-  // }
 
   showToast(message) {
     const toast = this.toastCtrl.create({
