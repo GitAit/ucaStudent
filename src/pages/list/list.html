@@ -35,11 +35,11 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let notification of notifications">
-      <ion-card>
+      <ion-card class="notif-card">
         <ion-card-header>
           {{notification.objet}}
         </ion-card-header>
-        <ion-card-content style="white-space: pre-line;">
+        <ion-card-content>
           <p>{{notification.texte}}</p>
         </ion-card-content>
         <ion-note>

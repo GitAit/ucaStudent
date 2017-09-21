@@ -1,3 +1,24 @@
 page-list {
+	.notif-card {
+		padding: 16px;
 
+		ion-card-header {
+			padding: 10px 0 0 0;
+	    color: #a74423;
+		}
+		.card-content-md {
+	    color: black;
+    	padding: 10px 0;
+
+
+    	p {
+    		color: black;
+    		white-space: normal;
+    	}
+		}
+		.note-md {
+	    padding: 10px 0;
+    	color: black;
+		}
+	}
 }

@@ -21,11 +21,19 @@ export class HomePage {
     if(!localStorage.getItem("numApogee")) {
       navCtrl.setRoot(LoginPage);
     } else {
-      this.loadResults();
+      // this.showLoader();
+      // this.loadResults();
       this.isLoggedIn = true;
     }
   }
 
+  showLoader(){
+    this.loading = this.loadingCtrl.create({
+        content: 'Loading Results...'
+    });
+
+    this.loading.present();
+  }
 
   loadResults(){
     this.resultServiceProvider.load(this.resultsData)
@@ -34,17 +42,29 @@ export class HomePage {
 
 
       this.results = data;
-      this.hideModDetails();
+      this.presentToast(JSON.stringify(data));
+      // this.hideModDetails();
 
     });
   }
 
-  showLoader(){
-    this.loading = this.loadingCtrl.create({
-        content: 'Authenticating...'
+  ionViewDidLoad() {
+    let loader = this.loadingCtrl.create({
+      content: 'Loading Results...',
     });
 
-    this.loading.present();
+    loader.present().then(() => {
+      this.resultServiceProvider.load(this.resultsData)
+      .then(data => {
+        // debugger;
+
+        this.results = data;
+        // this.presentToast(JSON.stringify(data));
+        // this.hideModDetails();
+
+      });
+      loader.dismiss();
+    });
   }
 
   presentToast(msg) {
