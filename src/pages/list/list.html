@@ -35,7 +35,9 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let notification of notifications">
-      <ion-card class="notif-card">
+      <ion-card class="notif-card" [ngClass]="{'style1': notification.publisher_role == 0, 'style2': notification.publisher_role == 1}">
+
+        <img class="notif-icon" src="assets/images/notif-icon-{{notification.publisher_role}}.png"/>
         <ion-card-header>
           {{notification.objet}}
         </ion-card-header>
@@ -43,7 +45,7 @@
           <p>{{notification.texte}}</p>
         </ion-card-content>
         <ion-note>
-          {{notification.date_notif}} - {{notification.published_by}}
+          {{changeDateFormat(notification.date_notif)}} - {{notification.published_by}}
         </ion-note>
       </ion-card>
     </ion-item>

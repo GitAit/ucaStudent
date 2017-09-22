@@ -18,8 +18,17 @@ export class ListPage {
   loadNotifications(){
     this.notificationProvider.load()
     .then(data => {
+
       this.notifications = data;
+
     });
+  }
+
+
+  changeDateFormat(dateString) {
+    let dateArr = dateString.split(":", 3);
+    dateArr.splice(2, 1);
+    return dateArr.join(":");
   }
 
   // selectedItem: any;

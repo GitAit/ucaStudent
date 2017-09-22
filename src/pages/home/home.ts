@@ -38,8 +38,6 @@ export class HomePage {
   loadResults(){
     this.resultServiceProvider.load(this.resultsData)
     .then(data => {
-      // debugger;
-
 
       this.results = data;
       this.presentToast(JSON.stringify(data));

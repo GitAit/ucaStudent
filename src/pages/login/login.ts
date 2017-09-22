@@ -12,7 +12,7 @@ declare var FCMPlugin;
 export class LoginPage {
 
   loading: any;
-  loginData = { cne:'1210125458', apogee:'1577135', dateNaissance:'', token:'fJRamd9hQmE:fJRamd9hQmE:APA91bELh6bL4mAkktPoO8mrpV31XsXSOKjw257788888' };
+  loginData = { cne:'1210125458', apogee:'1577135', dateNaissance:'1993-12-15', token:'fJRamd9hQmE:fJRamd9hQmE:APA91bELh6bL4mAkktPoO8mrpV31XsXSOKjw257788888' };
   // loginData = { cne:'1210125458', apogee:'1577135', dateNaissance:'15/12/1993', token:'fJRamd9hQmE:fJRamd9hQmE:APA91bELh6bL4mAkktPoO8mrpV31XsXSOKjw257788888' };
   data: any;
 

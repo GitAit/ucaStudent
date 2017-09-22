@@ -11,7 +11,8 @@ import 'rxjs/add/operator/map';
 
 let apiUrl = 'http://ucastudent.uca.ma/';
 // let apiUrl = 'http://localhost/uca_notes/';
-// let apiUrl = 'http://295a2015.ngrok.io/uca_notes/';
+// let apiUrl = 'http://2cc3a28e.ngrok.io/uca_notes/';
+// let apiUrl = 'http://abouelassad.cf/uca_notes/';
 
 @Injectable()
 export class AuthServiceProvider {
